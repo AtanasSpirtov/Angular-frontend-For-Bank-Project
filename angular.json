@@ -22,6 +22,8 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
+
+
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -71,15 +73,20 @@
               "browserTarget": "my-app:build:production"
             },
             "development": {
-              "browserTarget": "my-app:build:development"
+              "browserTarget": "my-app:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "src/proxy.conf.json"
+          }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
             "browserTarget": "my-app:build"
+
           }
         },
         "test": {

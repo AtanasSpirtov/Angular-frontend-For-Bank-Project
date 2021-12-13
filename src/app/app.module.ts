@@ -3,16 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {HttpClientModule} from "@angular/common/http";
+import { TransactionComponent } from './transaction/transaction.component';
+import { HomeComponent } from './home/home.component';
+import {TransactionService} from "./service/transaction.service";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TransactionComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [TransactionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
