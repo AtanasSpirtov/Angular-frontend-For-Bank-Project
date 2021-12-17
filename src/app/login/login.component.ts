@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {LoginService} from '../service/login.service';
+import {Message} from "../model/response/Message";
+import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-login',
@@ -9,10 +11,10 @@ import {LoginService} from '../service/login.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router) {
+  constructor(private loginService: LoginService, private router: Router , private cookieService: CookieService) {
   }
 
-  message: any;
+  message: string = 'shit';
 
   ngOnInit(): void {
   }
@@ -21,16 +23,12 @@ export class LoginComponent implements OnInit {
     this.loginService.login(username, password)
       .subscribe(
         data => {
-          console.log('Success: ', data);
-        },
-        error => {
-          console.log('Error: ', error);
+          this.message = data.message;
         })
-    if (this.message.equal("authenticated successfully")) {
+    console.log(this.message);
+    if (this.message === 'Authenticated Successfully') {
       let successfulUrl = "http://localhost:8080/transaction";
-      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
-        this.router.navigate([successfulUrl]);
-      });
+      this.router.navigate([successfulUrl])
     }
   }
 }
