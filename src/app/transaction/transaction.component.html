@@ -1,0 +1,47 @@
+<h1>Transaction Manager</h1>
+
+
+<p>Create Transaction</p>
+
+<div class="transaction-creation">
+  <label> Source Account name : </label> <input #sourceAccountName/>
+  <p></p>
+  <label> Recipient Account name : </label> <input #recipientAccountName/>
+  <p></p>
+  <label> Amount of transaction : </label> <input #amountOfTransactions/>
+  <p></p>
+  <button (click)="add(sourceAccountName.value , recipientAccountName.value , amountOfTransactions.value);
+   sourceAccountName.value=''; recipientAccountName.value=''; amountOfTransactions.value=''">
+    Add Transaction
+  </button>
+</div>
+
+<p>List Transactions</p>
+<div class="list-transactions">
+
+  <div class="enter-account-id">
+    <label class="labels"> Enter Account Id : </label> <input #accountId/>
+  </div>
+
+  <div class="input-transaction">
+    <button (click)="accountId.value;getAccountId(accountId.value);accountId.value = '';
+      getTransaction();">
+      List Transactions
+    </button>
+
+    <button (click)=reloadCurrentRoute()>
+      clear
+    </button>
+  </div>
+
+  <ul class="list-of-transactions">
+
+    <li *ngFor='let trans of listOfTransactions ; let i = index' (click)="onSelect(trans)"
+        [class.selected]="trans === selectedTransaction">
+      <span class="badge">{{i}}: </span>
+      <span> {{this.trans.sourceAccount.name}} - {{trans.recipientAccount.name}}: {{trans.transactionAmount}}</span>
+    </li>
+
+  </ul>
+
+</div>

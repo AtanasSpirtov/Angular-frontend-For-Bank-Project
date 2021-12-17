@@ -1,0 +1,21 @@
+.transaction-creation , .list-transactions{
+  width:40%;
+  margin:30px auto;
+  font-size:25px;
+}
+p{
+  width:50%;
+  margin:auto;
+  font-size:30px;
+  color: #EEEEEE;
+}
+button{
+  background-color: rgba(199, 221, 238, 0.76);
+  font-size:17px;
+  font-weight:bold;
+}
+.list-of-transactions{
+  border-style: hidden;
+  background-color: rgba(21, 100, 129, 0.3);
+  width: 50%;
+}
