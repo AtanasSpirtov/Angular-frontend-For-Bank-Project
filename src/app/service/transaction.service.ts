@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {Transaction} from "../model/Transaction";
 import {Options} from "../SecurityAuthorization/Options";
 
@@ -22,5 +22,4 @@ export class TransactionService {
     return this.http.post<Transaction>(`${this.apiUrl}/transaction/create`, JSONObject, Options.options
     ).subscribe(data => data)
   }
-
 }

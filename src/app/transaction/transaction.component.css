@@ -14,7 +14,7 @@ button{
   font-size:17px;
   font-weight:bold;
 }
-.list-of-transactions{
+.list-of-transactions {
   border-style: hidden;
   background-color: rgba(21, 100, 129, 0.3);
   width: 50%;
