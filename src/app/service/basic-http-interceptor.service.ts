@@ -1,19 +1,24 @@
-import { Injectable } from '@angular/core';
-import { HttpInterceptor, HttpRequest, HttpHandler } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpInterceptor, HttpRequest, HttpHandler} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasicHttpInterceptorService implements HttpInterceptor {
 
-  constructor() { }
+  constructor() {
+  }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-
-    if (sessionStorage.getItem('username') && sessionStorage.getItem('basicauth')) {
+    let localStorageExpiration = String(localStorage.getItem('expirationTime'));
+    if (Number(new Date(Date.now()).getTime()) > Number(new Date(localStorageExpiration).getTime())) {
+      localStorage.clear();
+      return next.handle(req);
+    }
+    if (localStorage.getItem('username') && localStorage.getItem('basicauth')) {
       req = req.clone({
         setHeaders: {
-          'Authorization': `${sessionStorage.getItem('basicauth')}`
+          'Authorization': `${localStorage.getItem('basicauth')}`
         }
       })
     }

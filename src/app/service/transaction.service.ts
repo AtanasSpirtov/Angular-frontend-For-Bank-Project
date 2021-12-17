@@ -14,7 +14,7 @@ export class TransactionService {
 
   getAllTransactions(accountId: number) {
     return this.http
-      .get<Transaction[]>(`http://localhost:8080/transaction/allTransactionsByAccount/${accountId}`, Options.options);
+      .get<Transaction[]>(`${this.apiUrl}/transaction/allTransactionsByAccount/${accountId}`, Options.options);
   }
 
   createTransactions(transaction: Transaction) {
