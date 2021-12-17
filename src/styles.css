@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap');
+
+html,body{
+  background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  font-family: Cormorant Garamond ,helvetica, sans-serif;
+}
+label , li{
+  color: #EEEEEE;
+}
+input{
+  background-color: rgba(255, 189, 0, 0.6);
+  font-weight: bold;
+}
+button{
+  background-color: rgba(73, 113, 215, 0.47);
+}

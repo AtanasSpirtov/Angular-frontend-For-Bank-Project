@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {map, Observable} from 'rxjs';
-import {Message} from "../entities/response/Message";
-import {Account} from "../entities/Account";
+import {Message} from "../model/response/Message";
+import {Account} from "../model/Account";
+import {Options} from "../SecurityAuthorization/Options";
 
 @Injectable({
   providedIn: 'root'
 })
-export class TransactionService {
+export class AccountService {
   constructor(private http: HttpClient) {
   }
   private readonly apiUrl = 'http://localhost:8080';
@@ -20,4 +21,7 @@ export class TransactionService {
   accountById$ = (id: number) => <Observable<Message>>this.http.get<Message>
   (`${this.apiUrl}/accountManaging/accountById?${id}`);
 
+  getAccountByName(accountName: string) {
+    return this.http.get<Account>(`${this.apiUrl}/accountManaging/accountByName/${accountName}`, Options.options)
+  }
 }

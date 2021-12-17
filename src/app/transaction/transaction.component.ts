@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Transaction} from "../entities/Transaction";
+import {Transaction} from "../model/Transaction";
 import {TransactionService} from "../service/transaction.service";
 import {Router} from "@angular/router";
-import {BigInteger} from "@angular/compiler/src/i18n/big_integer";
+import {AccountService} from "../service/AccountService";
 
 @Component({
   selector: 'app-transaction',
@@ -15,7 +15,7 @@ export class TransactionComponent implements OnInit {
   wantedAccountId: number = 0;
   error: any;
 
-  constructor(private transactionService: TransactionService, private router: Router) {
+  constructor(private transactionService: TransactionService, private router: Router, private accountService: AccountService) {
   }
 
   ngOnInit(): void {
@@ -51,22 +51,19 @@ export class TransactionComponent implements OnInit {
   private transactionServed: Transaction = <Transaction>{};
 
   add(sourceAccountName: string, recipientAccountName: string, amountOfTransactions: string): void {
-    if(isNaN(Number(amountOfTransactions)))
-    {
+    if (isNaN(Number(amountOfTransactions))) {
       console.log("this is not a number")
       return;
     }
     let transAmountToNum = Number(amountOfTransactions);
     sourceAccountName = sourceAccountName.trim();
     recipientAccountName = recipientAccountName.trim();
-
-    this.transactionService.getAccountByName(sourceAccountName).subscribe(
+    this.accountService.getAccountByName(sourceAccountName).subscribe(
       data => {
         this.transactionServed.sourceAccount = data
       }
     );
-
-    this.transactionService.getAccountByName(recipientAccountName).subscribe(
+    this.accountService.getAccountByName(recipientAccountName).subscribe(
       data => {
         this.transactionServed.recipientAccount = data
       }
