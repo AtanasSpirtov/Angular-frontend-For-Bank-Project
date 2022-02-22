@@ -30,11 +30,8 @@
             </div>
             <input type="password" class="form-control" placeholder="password" #password/>
           </div>
-          <div class="row align-items-center remember">
-            <input type="checkbox">Remember Me
-          </div>
           <div class="form-group">
-            <input type="submit" value="Login" class="btn float-right login_btn" (click)="loginForm(username.value , password.value)">
+            <input type="button" value="Login" class="btn float-right login_btn" (click)="loginForm(username.value , password.value)">
           </div>
         </form>
       </div>

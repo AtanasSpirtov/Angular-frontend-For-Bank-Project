@@ -10,12 +10,13 @@ export class BasicHttpInterceptorService implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    let localStorageExpiration = String(localStorage.getItem('expirationTime'));
-    if (Number(new Date(Date.now()).getTime()) > Number(new Date(localStorageExpiration).getTime())) {
-      localStorage.clear();
+    let localStorageExpiration = localStorage.getItem('expirationTime');
+    if (Number(new Date(Date.now()).getTime()) > Number(localStorageExpiration)) {
+      localStorage.removeItem('expirationTime');
+      localStorage.removeItem('basicauth');
       return next.handle(req);
     }
-    if (localStorage.getItem('username') && localStorage.getItem('basicauth')) {
+    if (localStorage.getItem('basicauth')) {
       req = req.clone({
         setHeaders: {
           'Authorization': `${localStorage.getItem('basicauth')}`
@@ -24,6 +25,5 @@ export class BasicHttpInterceptorService implements HttpInterceptor {
     }
 
     return next.handle(req);
-
   }
 }

@@ -18,15 +18,14 @@ export class LoginService {
       'Content-Type': 'application/json',
       'Authorization': 'Basic ' + btoa(username + ':' + password)
     })
-    return this.http.get<Message>(`${this.apiUrl}/`, {headers}).pipe(map(
+    return this.http.get<Message>(`${this.apiUrl}/login`, {headers}).pipe(map(
         userData => {
-          localStorage.setItem('username', username);
           let authString = 'Basic ' + btoa(username + ':' + password);
           localStorage.setItem('basicauth', authString);
 
           let expDate = new Date(Date.now());
           expDate.setHours(expDate.getHours() + 1);
-          localStorage.setItem('expirationTime', `${expDate}`);
+          localStorage.setItem('expirationTime', `${expDate.getTime()}`);
           return userData;
         }
       )

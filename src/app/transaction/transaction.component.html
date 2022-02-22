@@ -1,4 +1,4 @@
-<h1>Transaction Manager</h1>
+<p>Transaction Manager</p>
 
 
 <p>Create Transaction</p>
@@ -37,8 +37,7 @@
 
   <ul class="list-of-transactions">
 
-    <li *ngFor='let trans of listOfTransactions ; let i = index' (click)="onSelect(trans)"
-        [class.selected]="trans === selectedTransaction">
+    <li *ngFor='let trans of listOfTransactions ; let i = index' [class.selected]="trans === selectedTransaction">
       <span class="badge">{{i}}: </span>
       <span> {{this.trans.sourceAccount.name}} - {{trans.recipientAccount.name}}: {{trans.transactionAmount}}</span>
     </li>

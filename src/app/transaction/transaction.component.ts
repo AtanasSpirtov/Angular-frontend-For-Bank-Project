@@ -25,10 +25,6 @@ export class TransactionComponent implements OnInit {
     this.wantedAccountId = Number(accountId);
   }
 
-  onSelect(transaction: Transaction): void {
-    this.selectedTransaction = transaction;
-  }
-
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
     this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
@@ -70,6 +66,7 @@ export class TransactionComponent implements OnInit {
     );
     this.transactionServed.transactionAmount = transAmountToNum;
     console.log(this.transactionServed)
+    console.log(localStorage.length)
     this.transactionService.createTransactions(this.transactionServed);
   }
 }

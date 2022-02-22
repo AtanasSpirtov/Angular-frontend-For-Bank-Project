@@ -14,21 +14,18 @@ export class LoginComponent implements OnInit {
   constructor(private loginService: LoginService, private router: Router , private cookieService: CookieService) {
   }
 
-  message: string = 'shit';
-
   ngOnInit(): void {
   }
 
   loginForm(username: string, password: string) {
     this.loginService.login(username, password)
       .subscribe(
-        data => {
-          this.message = data.message;
+        () => {
+          console.log("hello");
+          let successfulUrl = '/transaction';
+          this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+            this.router.navigate([successfulUrl]);
+          });
         })
-    console.log(this.message);
-    if (this.message === 'Authenticated Successfully') {
-      let successfulUrl = "http://localhost:8080/transaction";
-      this.router.navigate([successfulUrl])
-    }
   }
 }
