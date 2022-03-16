@@ -9,12 +9,14 @@ import {TransactionService} from "./service/transaction.service";
 import { LoginComponent } from './login/login.component';
 import {CookieService} from "ngx-cookie-service";
 import {BasicHttpInterceptorService} from "./service/basic-http-interceptor.service";
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TransactionComponent,
-    LoginComponent
+    LoginComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
