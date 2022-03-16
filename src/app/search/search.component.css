@@ -1,0 +1,30 @@
+.input-group{
+  display: flex;
+  flex-direction: column;
+}
+.form-outline{
+  background-color: black;
+  width: 100%;
+  height: 40px;
+  display: flex;
+}
+.form-control{
+  align-content: center;
+  height: 30px;
+}
+.form-label{
+  font-size: 25px;
+  padding-right: 10px;
+  align-content : center;
+}
+.btn-search{
+  align-content: center;
+  justify-self: center;
+  height: 30px;
+  width: 70px;
+  margin-left: 10px;
+  background-color: rgba(199, 221, 238, 0.76);
+  font-weight : bold;
+  font-family: Cormorant Garamond ,helvetica, sans-serif;
+  font-size: 20px;
+}
