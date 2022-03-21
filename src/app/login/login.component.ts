@@ -1,31 +1,29 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import {Router} from '@angular/router';
 import {LoginService} from '../service/login.service';
-import {Message} from "../model/response/Message";
-import {CookieService} from "ngx-cookie-service";
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor(private loginService: LoginService, private router: Router , private cookieService: CookieService) {
-  }
-
-  ngOnInit(): void {
+  constructor(private loginService: LoginService, private router: Router) {
   }
 
   loginForm(username: string, password: string) {
+    if(window.localStorage.getItem("basicauth") != null) {
+      window.localStorage.clear()
+    }
     this.loginService.login(username, password)
       .subscribe(
         () => {
-          console.log("hello");
-          let successfulUrl = '/transaction';
+          let successfulUrl = '/successfulLoggedIn';
           this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
             this.router.navigate([successfulUrl]);
           });
         })
+
   }
 }

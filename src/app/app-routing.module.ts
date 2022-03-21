@@ -3,10 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import {TransactionComponent} from "./transaction/transaction.component";
 import {LoginComponent} from "./login/login.component";
 import { SearchComponent } from './search/search.component';
+import {SuccessfulLoggedInComponent} from "./succesfull-logged-in/successful-logged-in.component";
 
 const routes: Routes = [{
   path: '',
-  redirectTo: '/login',
+  redirectTo: 'login',
   pathMatch: 'full',
 },
   {
@@ -20,7 +21,11 @@ const routes: Routes = [{
   {
     path: 'search',
     component:SearchComponent,
-  }
+  },
+  {
+    path: 'successfulLoggedIn',
+    component:SuccessfulLoggedInComponent
+  },
   ];
 
 @NgModule({

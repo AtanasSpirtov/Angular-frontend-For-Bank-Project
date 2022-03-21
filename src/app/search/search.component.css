@@ -1,3 +1,6 @@
+::placeholder{
+  color : black;
+}
 .input-group{
   display: flex;
   flex-direction: column;
@@ -27,4 +30,20 @@
   font-weight : bold;
   font-family: Cormorant Garamond ,helvetica, sans-serif;
   font-size: 20px;
+}
+
+
+.list-of-accounts {
+  border-style: hidden;
+  width: 50%;
+  font-size: 25px;
+}
+.badge{
+  font-size: 30px;
+}
+p{
+  width:50%;
+  margin:auto;
+  font-size:30px;
+  color: #EEEEEE;
 }

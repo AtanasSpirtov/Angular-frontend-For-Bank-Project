@@ -5,23 +5,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { TransactionComponent } from './transaction/transaction.component';
-import {TransactionService} from "./service/transaction.service";
 import { LoginComponent } from './login/login.component';
-import {CookieService} from "ngx-cookie-service";
 import {BasicHttpInterceptorService} from "./service/basic-http-interceptor.service";
 import { SearchComponent } from './search/search.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { SuccessfulLoggedInComponent } from './succesfull-logged-in/successful-logged-in.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TransactionComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    SuccessfulLoggedInComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass:BasicHttpInterceptorService, multi:true
