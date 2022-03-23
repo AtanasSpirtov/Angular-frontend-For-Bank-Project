@@ -10,6 +10,7 @@ import {BasicHttpInterceptorService} from "./service/basic-http-interceptor.serv
 import { SearchComponent } from './search/search.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { SuccessfulLoggedInComponent } from './succesfull-logged-in/successful-logged-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SuccessfulLoggedInComponent } from './succesfull-logged-in/successful-l
     LoginComponent,
     SearchComponent,
     SuccessfulLoggedInComponent,
+    SignUpComponent,
   ],
   imports: [
     BrowserModule,

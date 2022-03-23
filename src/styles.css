@@ -1,20 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap');
 
-html,body{
+html, body {
   background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
   height: 100%;
-  font-family: Cormorant Garamond ,helvetica, sans-serif;
 }
-label , li{
+
+* {
+  font-family: Cormorant Garamond, helvetica, sans-serif;
+}
+
+label, li {
   color: #EEEEEE;
 }
-input{
+
+input {
   background-color: rgba(255, 189, 0, 0.6);
   font-weight: bold;
 }
-button{
+
+button {
   background-color: rgba(73, 113, 215, 0.47);
 }
