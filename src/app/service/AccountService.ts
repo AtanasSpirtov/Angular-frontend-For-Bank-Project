@@ -12,14 +12,15 @@ export class AccountService {
   constructor(private http: HttpClient) {
   }
   private readonly apiUrl = 'http://localhost:8080';
-  createAccount$ = (account: Account) => <Observable<Message>>this.http.post<Message>
-  (`${this.apiUrl}/accountManaging/create` , account);
 
-  deleteAccount$ = (name: string) => <Observable<Message>>this.http.post<Message>
-  (`${this.apiUrl}/accountManaging/delete` , name);
-
-  accountById$ = (id: number) => <Observable<Message>>this.http.get<Message>
-  (`${this.apiUrl}/accountManaging/accountById?${id}`);
+  // createAccount$ = (account: Account) => <Observable<Message>>this.http.post<Message>
+  // (`${this.apiUrl}/accountManaging/create` , account , Options.options);
+  //
+  // deleteAccount$ = (name: string) => <Observable<Message>>this.http.post<Message>
+  // (`${this.apiUrl}/accountManaging/delete` , name , Options.options);
+  //
+  // accountById$ = (id: number) => <Observable<Message>>this.http.get<Message>
+  // (`${this.apiUrl}/accountManaging/accountById?${id}` , Options.options);
 
   getAccountByName(accountName: string) {
     return this.http.get<Account>(`${this.apiUrl}/accountManaging/accountByName/${accountName}`, Options.options)

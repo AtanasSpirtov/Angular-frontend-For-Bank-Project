@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Message} from "../model/response/Message";
 import {map} from "rxjs";
+import {Options} from "../SecurityAuthorization/Options";
 
 @Injectable({
   providedIn: 'root'
@@ -30,5 +31,9 @@ export class LoginService {
         }
       )
     )
+  }
+
+  logout() {
+    return this.http.get<Message>(`${this.apiUrl}/loggingOut`, Options.options).subscribe(data => console.log(data));
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {LoginService} from '../service/login.service';
 
@@ -13,7 +13,7 @@ export class LoginComponent {
   }
 
   loginForm(username: string, password: string) {
-    if(window.localStorage.getItem("basicauth") != null) {
+    if (window.localStorage.getItem("basicauth") != null) {
       window.localStorage.clear()
     }
     this.loginService.login(username, password)

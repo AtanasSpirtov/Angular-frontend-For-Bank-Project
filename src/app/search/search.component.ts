@@ -1,5 +1,5 @@
-import { Component} from '@angular/core';
-import { SearchService } from '../service/search.service';
+import {Component} from '@angular/core';
+import {SearchService} from '../service/search.service';
 import {Account} from "../model/Account";
 import {Router} from "@angular/router";
 
@@ -8,23 +8,23 @@ import {Router} from "@angular/router";
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.css']
 })
-export class SearchComponent{
+export class SearchComponent {
 
-  accounts : Account[] = [];
-  searchEvent : string
+  accounts: Account[] = [];
+  searchEvent: string
 
-  constructor(private searchService: SearchService ,private router : Router) {
+  constructor(private searchService: SearchService, private router: Router) {
   }
 
-  eventController(input : string){
+  eventController(input: string) {
     this.searchEvent = input;
     this.accountList(input);
   }
 
   accountList(name: string) {
-    console.log(this.accounts,name);
+    console.log(this.accounts, name);
     this.accounts = [];
-    this.searchService.search(name).subscribe(returnedAccounts =>{
+    this.searchService.search(name).subscribe(returnedAccounts => {
       for (let key in returnedAccounts) {
         this.accounts.push(returnedAccounts[key])
       }

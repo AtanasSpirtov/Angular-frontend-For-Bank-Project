@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {TransactionComponent} from "./transaction/transaction.component";
 import {LoginComponent} from "./login/login.component";
-import { SearchComponent } from './search/search.component';
+import {SearchComponent} from './search/search.component';
 import {SuccessfulLoggedInComponent} from "./succesfull-logged-in/successful-logged-in.component";
 
 const routes: Routes = [{
@@ -16,20 +16,21 @@ const routes: Routes = [{
   },
   {
     path: 'transaction',
-    component:TransactionComponent,
+    component: TransactionComponent,
   },
   {
     path: 'search',
-    component:SearchComponent,
+    component: SearchComponent,
   },
   {
     path: 'successfulLoggedIn',
-    component:SuccessfulLoggedInComponent
+    component: SuccessfulLoggedInComponent
   },
-  ];
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

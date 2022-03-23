@@ -1,6 +1,17 @@
-  <ul>
-    <li><a href="http://localhost:4200/search">Accounts</a></li>
-    <li><a href="http://localhost:4200/transaction">Transaction</a></li>
-    <li><a href='http://localhost:4200/login' (click)="logout()">Logout</a></li>
-  </ul>
+<ul>
+  <li><a href="http://localhost:4200/search">Accounts</a></li>
+  <li><a href="http://localhost:4200/transaction">Transaction</a></li>
+  <li><a href='http://localhost:4200/login' (click)="logout()">Logout</a></li>
+</ul>
+
+<div class="enter-account-id">
+  <label class="labels"> Enter Account Id For Report: </label> <input (input)="idForReport($any($event.target).value)"/>
+</div>
+
+<section class="links" *ngIf="displayButtons">
+  <button class="btn" (click)="downloadPdf()"> Download PDF</button>
+  <button class="btn" (click)="downloadPdfZipped()"> Download PDF (Zip)</button>
+  <button class="btn" (click)="downloadExcel()"> Download Excel</button>
+  <button class="btn" (click)="downloadExcelZipped()"> Download EXCEL (Zip)</button>
+</section>
 
