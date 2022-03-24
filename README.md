@@ -9,5 +9,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## How to use:
 Download Spring-Boot-Bank-Project
 Download Angular-frontend-For-Bank-Project
+Make sure you created the database called transactionmanager and executed all SQL scripts in Spring-Boot-Bank-Project/Database
 Run both projects
-Go to http://localhost:4200/ and you can access whatever functionality you want.
+Go to `http://localhost:4200/login`
+Login with username 'nasko' and password 'nasko'
+Enjoy!
