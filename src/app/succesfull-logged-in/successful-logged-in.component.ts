@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {PdfAndExcelDownloadService} from "../service/pdf-and-excel-download.service";
-import {LoginService} from "../service/login.service";
+import {UserService} from "../service/user.service";
 
 @Component({
   selector: 'app-successful-logged-in',
@@ -9,7 +9,7 @@ import {LoginService} from "../service/login.service";
 })
 export class SuccessfulLoggedInComponent {
 
-  constructor(private pdfExcelService: PdfAndExcelDownloadService, private loginService: LoginService) {
+  constructor(private pdfExcelService: PdfAndExcelDownloadService, private loginService: UserService) {
   }
 
   private isZipped: boolean;
@@ -20,7 +20,6 @@ export class SuccessfulLoggedInComponent {
 
   logout() {
     this.loginService.logout();
-    window.localStorage.clear();
   }
 
   idForReport(value) {

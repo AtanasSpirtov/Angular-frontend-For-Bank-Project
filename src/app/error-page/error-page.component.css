@@ -1,0 +1,15 @@
+p {
+  margin: auto;
+  font-size: 30px;
+  color: #EEEEEE;
+  padding-bottom: 20px;
+}
+
+.page-main{
+  width:40%;
+  margin:30px auto;
+  font-size:25px;
+}
+input{
+  font-size:20px;
+}

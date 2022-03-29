@@ -11,6 +11,7 @@ import { SearchComponent } from './search/search.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import { SuccessfulLoggedInComponent } from './succesfull-logged-in/successful-logged-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     SearchComponent,
     SuccessfulLoggedInComponent,
     SignUpComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

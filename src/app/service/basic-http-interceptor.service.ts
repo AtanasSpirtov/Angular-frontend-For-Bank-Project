@@ -19,29 +19,10 @@ export class BasicHttpInterceptorService implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     let localStorageExpiration = localStorage.getItem('expirationTime');
-    if(localStorage.length == 0) {
-      return next.handle(req).pipe(
-        map((event: HttpEvent<any>) => {
-          return event;
-        }),
-        catchError(
-          (
-            httpErrorResponse: HttpErrorResponse, _: Observable<HttpEvent<any>>
-          ) => {
-            if (httpErrorResponse.status === HttpStatusCode.Unauthorized) {
-              this.router.navigate(['/login'])
-            }
-            return throwError(httpErrorResponse);
-          }
-        )
-      );
+    if (Number(new Date(Date.now()).getTime()) > Number(localStorageExpiration)) {
+      window.localStorage.clear();
     }
-    else {
-      if (Number(new Date(Date.now()).getTime()) > Number(localStorageExpiration)) {
-        localStorage.removeItem('expirationTime');
-        localStorage.removeItem('basicauth');
-        return next.handle(req);
-      }
+    if(localStorage.length != 0) {
       if (localStorage.getItem('basicauth')) {
         req = req.clone({
           setHeaders: {
@@ -50,7 +31,21 @@ export class BasicHttpInterceptorService implements HttpInterceptor {
         })
       }
     }
-
-    return next.handle(req);
+    return next.handle(req).pipe(
+        map((event: HttpEvent<any>) => {
+          return event;
+        }),
+        catchError(
+          (
+            httpErrorResponse: HttpErrorResponse, _: Observable<HttpEvent<any>>
+          ) => {
+            if (httpErrorResponse.status === HttpStatusCode.Unauthorized
+              || httpErrorResponse.status === HttpStatusCode.Forbidden) {
+              this.router.navigate(['/errorPage'])
+            }
+            return throwError(httpErrorResponse);
+          }
+        )
+      );
   }
 }

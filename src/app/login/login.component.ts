@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
-import {LoginService} from '../service/login.service';
+import {UserService} from '../service/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +9,7 @@ import {LoginService} from '../service/login.service';
 })
 export class LoginComponent {
 
-  constructor(private loginService: LoginService, private router: Router) {
+  constructor(private loginService: UserService, private router: Router) {
   }
 
   loginForm(username: string, password: string) {
