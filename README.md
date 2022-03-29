@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## How to use:
-1.Download Angular-frontend-For-Bank-Project as zip , extract and open project with IntelliJ IDEA or Visual Studio Code
+1.Download `Angular-frontend-For-Bank-Project` as zip , extract and open project with IntelliJ IDEA or Visual Studio Code
 
 2.Open terminal in Visual Studio Code or IntelliJ IDEA
 
