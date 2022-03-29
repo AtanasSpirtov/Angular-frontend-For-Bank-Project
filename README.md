@@ -7,16 +7,24 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## How to use:
-1.Download Spring-Boot-Bank-Project
+1.Download Angular-frontend-For-Bank-Project , Download Zip and open project with Intelij or Visual Studio Code
 
-2.Download Angular-frontend-For-Bank-Project
+2.Open terminal in visual studio code or intelij
 
-3.Make sure you created the database called transactionmanager and executed all SQL scripts in Spring-Boot-Bank-Project/Database
+3. Run npm install -g @angular/cli@13.0.4
 
-4.Run both projects
+4. Run npm install file-saver
+ 
+5. Run ng serve
+ 
+6. Now go to https://github.com/AtanasSpirtov , download Spring-Bank-Project and follow the steps
 
-5.Go to `http://localhost:4200/login`
+7. After you finish the 9. step you can login with two users 
 
-6.Login with username 'nasko' and password 'nasko'
+7.1 first user is with username `nasko` and password `nasko` and have admin rights. That means he can access every functionality he wants
 
-Enjoy!
+7.2 Second user is with username `testUser` and password `mikrofona2` and can access only specific functionalities.
+
+8. If user is not logged in or do not have permissions for some functionality the page will redirect you to page where you can follow steps and login again.
+
+9. Start testing and Enjoy!
