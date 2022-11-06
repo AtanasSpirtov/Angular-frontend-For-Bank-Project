@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Transaction} from "../model/Transaction";
+import {TransactionDTO} from "../model/TransactionDTO";
 import {TransactionService} from "../service/transaction.service";
 import {Router} from "@angular/router";
 import {AccountService} from "../service/AccountService";
@@ -10,8 +10,8 @@ import {AccountService} from "../service/AccountService";
   styleUrls: ['./transaction.component.css']
 })
 export class TransactionComponent implements OnInit {
-  listOfTransactions: Transaction[] = [];
-  selectedTransaction = <Transaction>{};
+  listOfTransactions: TransactionDTO[] = [];
+  selectedTransaction = <TransactionDTO>{};
   wantedAccountId: number = 0;
   error: any;
 
@@ -44,7 +44,7 @@ export class TransactionComponent implements OnInit {
     console.log(this.listOfTransactions)
   }
 
-  private transactionServed: Transaction = <Transaction>{};
+  private transactionServed: TransactionDTO = <TransactionDTO>{};
 
   add(sourceAccountName: string, recipientAccountName: string, amountOfTransactions: string): void {
     if (isNaN(Number(amountOfTransactions))) {
@@ -55,18 +55,16 @@ export class TransactionComponent implements OnInit {
     sourceAccountName = sourceAccountName.trim();
     recipientAccountName = recipientAccountName.trim();
     this.accountService.getAccountByName(sourceAccountName).subscribe(
-      data => {
-        this.transactionServed.sourceAccount = data
+      sourceAccount => {
+        this.transactionServed.sourceAccount = sourceAccount
+        this.accountService.getAccountByName(recipientAccountName).subscribe(
+          recipientAccount => {
+            this.transactionServed.recipientAccount = recipientAccount
+            this.transactionServed.transactionAmount = transAmountToNum;
+            this.transactionService.createTransactions(this.transactionServed).subscribe(data => data);
+          }
+        );
       }
     );
-    this.accountService.getAccountByName(recipientAccountName).subscribe(
-      data => {
-        this.transactionServed.recipientAccount = data
-      }
-    );
-    this.transactionServed.transactionAmount = transAmountToNum;
-    console.log(this.transactionServed)
-    console.log(localStorage.length)
-    this.transactionService.createTransactions(this.transactionServed);
   }
 }

@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {Transaction} from "../model/Transaction";
+import {TransactionDTO} from "../model/TransactionDTO";
 import {Options} from "../SecurityAuthorization/Options";
 import {HttpClient} from "@angular/common/http";
-import {Account} from "../model/Account";
+import {AccountDTO} from "../model/AccountDTO";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class SearchService {
   private readonly apiUrl = 'http://localhost:8080';
 
   search(accountName: string) {
-    return this.http.get<Account[]>(`${this.apiUrl}/searchByName/${accountName}`, Options.options)
+    return this.http.get<AccountDTO[]>(`${this.apiUrl}/searchByName/${accountName}`, Options.options)
   }
 
 }

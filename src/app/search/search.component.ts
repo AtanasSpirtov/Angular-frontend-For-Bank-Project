@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {SearchService} from '../service/search.service';
-import {Account} from "../model/Account";
+import {AccountDTO} from "../model/AccountDTO";
 import {Router} from "@angular/router";
 
 @Component({
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class SearchComponent {
 
-  accounts: Account[] = [];
+  accounts: AccountDTO[] = [];
   searchEvent: string
 
   constructor(private searchService: SearchService, private router: Router) {

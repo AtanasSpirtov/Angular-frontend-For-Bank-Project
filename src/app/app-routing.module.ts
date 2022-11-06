@@ -4,7 +4,7 @@ import {TransactionComponent} from "./transaction/transaction.component";
 import {LoginComponent} from "./login/login.component";
 import {SearchComponent} from './search/search.component';
 import {SuccessfulLoggedInComponent} from "./succesfull-logged-in/successful-logged-in.component";
-import { SignUpComponent } from './sign-up/sign-up.component';
+import {SignUpComponent} from './sign-up/sign-up.component';
 import {ErrorPageComponent} from "./error-page/error-page.component";
 
 const routes: Routes = [{

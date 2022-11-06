@@ -12,11 +12,11 @@ export class LoginComponent {
   constructor(private loginService: UserService, private router: Router) {
   }
 
-  loginForm(username: string, password: string) {
-    if (window.localStorage.getItem("basicauth") != null) {
+  loginForm(username: string, password: string, email: string) {
+    if (window.localStorage.getItem("token") != null) {
       window.localStorage.clear()
     }
-    this.loginService.login(username, password)
+    this.loginService.login(username, password, email)
       .subscribe(
         () => {
           let successfulUrl = '/successfulLoggedIn';
