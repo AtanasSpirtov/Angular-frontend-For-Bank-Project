@@ -31,6 +31,6 @@ export class UserService {
 
   signUp(user: User) {
     const JSONObject = JSON.stringify(user);
-    return this.http.post<Message>(`${this.apiUrl}/signUp`, JSONObject, Options.options);
+    return this.http.post<Message>(`${this.apiUrl}/user/create`, JSONObject, Options.options);
   }
 }

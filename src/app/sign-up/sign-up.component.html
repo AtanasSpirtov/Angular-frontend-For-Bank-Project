@@ -34,6 +34,7 @@
           <div class="form-group">
             <input id="btn"  type="button" value="Sign Up" class="btn float-right login_btn" (click)="createUser(username.value,email.value, password.value)">
           </div>
+          <p [ngStyle]="{'color': 'red'}" *ngIf="errorMessage != null"> {{errorMessage}}</p>
         </form>
       </div>
     </div>

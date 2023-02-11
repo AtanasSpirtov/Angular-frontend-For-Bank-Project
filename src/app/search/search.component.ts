@@ -22,7 +22,6 @@ export class SearchComponent {
   }
 
   accountList(name: string) {
-    console.log(this.accounts, name);
     this.accounts = [];
     this.searchService.search(name).subscribe(returnedAccounts => {
       for (let key in returnedAccounts) {
